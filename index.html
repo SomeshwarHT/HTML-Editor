@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <div class="top-header">
+        <div class="top-header-content">
+            <div class="header-left">
+                <span><i class="fas fa-map-marker-alt"></i>Coimbatore, Tamilnadu, India</span>
+                <span class="divider">/</span>
+                <span><i class="fas fa-envelope"></i>info@he5.in</span>
+            </div>
+            <div class="header-right">
+                <a target="_blank" href="https://www.facebook.com/people/he5_solutions/100066605027459/#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a target="_blank" href="https://in.linkedin.com/company/he5-solutions" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a target="_blank" href="https://www.instagram.com/he5_solutions?igshid=MzRlODBiNWFlZA%3D%3D" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Title -->
+<div class="main-title-section">
+    <h1>HTML Editor</h1>
+</div>
+
+<!-- Editor Container -->
+<div class="editor-container">
+    <!-- Editor Section -->
+    <div class="editor-section">
+        <div class="editor-header">
+            <h2>Editor</h2>
+            <button class="run-btn" id="runBtn">RUN</button>
+            <div class="interactive-toggle">
+                <span>Interactive Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="interactiveMode">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="editor-wrapper">
+            <div class="line-numbers" id="lineNumbers">1<br></div>
+            <textarea class="code-editor" id="codeEditor" spellcheck="false"></textarea>
+        </div>
+    </div>
+
+    <!-- Preview Section -->
+    <div class="preview-section">
+        <div class="preview-header">
+            <h2>Preview</h2>
+            <div class="preview-buttons">
+                <button class="download-btn" id="downloadBtn">Download HTML</button>
+                <button class="generate-btn" id="generateBtn">Generate & Copy Link</button>
+            </div>
+        </div>
+        <iframe class="preview-frame" id="previewFrame"></iframe>
+    </div>
+</div>
+
+<!-- Information Section -->
+<section class="info-section">
+    <div class="info-container">
+        <div class="info-image">
+            <img src="computer.png" alt="HTML Editor">
+        </div>
+        <div class="info-content">
+            <h3 class="section-subtitle">He5 Solutions</h3>
+            <h2 class="section-title">Free Online HTML Editor with Interactive Mode</h2>
+            <p class="info-description">
+                Welcome to our free online HTML editor! This tool is designed to help you write, edit, and execute HTML code effortlessly. 
+                Whether you're a beginner learning HTML or an experienced developer, our editor has features to enhance your workflow 
+                and make coding seamless.
+            </p>
+            <p class="info-description">
+                Start coding now with our free, interactive HTML editor! Share your ideas, collaborate with others, and take advantage of 
+                features like live previews and sharable links. Happy coding!
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Key Features Section -->
+<section class="features-section">
+    <div class="features-container">
+        <div class="features-header">
+            <h3 class="section-subtitle-white">HTML EDITOR</h3>
+            <h2 class="section-title-white">Key Features</h2>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Interactive Mode</h3>
+                    <p class="feature-description">
+                        Experience real-time feedback as you type your code. The output preview updates instantly, 
+                        helping you visualize changes on the fly.
+                    </p>
+                </div>
+                
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-forward"></i>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Run Button</h3>
+                    <p class="feature-description">
+                        Prefer manual execution? Use the Run button to instantly execute your code and see the 
+                        results in the output pane.
+                    </p>
+                </div>
+                
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="far fa-file-code"></i>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Base64 Code Integration</h3>
+                    <p class="feature-description">
+                        Preload the editor with HTML code by passing it as a Base64-encoded string via the base64code 
+                        URL parameter. This makes it simple to start coding from shared links or pre-configured templates.
+                    </p>
+                </div>
+                
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Sharable Links</h3>
+                    <p class="feature-description">
+                        Generate custom links for your code with ease. These links encode your work into a URL-friendly 
+                        Base64 format, allowing seamless sharing and revisiting.
+                    </p>
+                </div>
+                
+            </div>
+            
+            <!-- Feature 5 - Full Width -->
+            <div class="feature-card feature-card-full">
+                <div class="feature-icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Privacy Focused</h3>
+                    <p class="feature-description">
+                        Your code is never stored on our servers. All processes, including encoding, decoding, and execution, 
+                        are handled entirely in your browser, ensuring complete privacy and security.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How to Use Section -->
+<section class="how-to-use-section">
+    <div class="how-to-container">
+        <div class="how-to-content">
+            <h2 class="how-to-title">How to Use the Editor?</h2>
+            <ul class="how-to-list">
+                <li>Visit the editor page. Begin typing your <strong>HTML, CSS, or JavaScript</strong> code in the provided text area.</li>
+                <li>The interactive preview will display the output in real-time, helping you track changes instantly. To enable switch On <strong>Interactive Mode</strong></li>
+                <li>Else use the <strong>Run</strong> button to manually execute your code. The output will appear in the preview pane below.</li>
+            </ul>
+            
+            <h2 class="how-to-title">Preloading Code Using URL Parameters</h2>
+            <ul class="how-to-list">
+                <li>Encode your HTML code into Base64 format and Url encoded</li>
+                <li>Add the encoded string to the URL as a <span class="highlight-text">base64code</span> parameter.</li>
+                <li>Example: <span class="example-link">https://he5.in/utils/html-editor?base64code=PGgxPkhlbGxvIFdvcmxkISE8L2gxPg%3D%3D</span></li>
+                <li>Open the URL, and the editor will automatically populate the text area with the decoded code.</li>
+                <li>To generate an link, Once you finish writing your code, click the <strong>Generate Link</strong> button, this will encode the code in the required format and share you the link</li>
+                <li>Copy and share this link with others to allow them to view or edit your code.</li>
+            </ul>
+        </div>
+        
+        <div class="how-to-sidebar">
+            <!-- Ad Banner 1 - Hostinger -->
+            <a href="https://hostinger.com" target="_blank" class="ad-banner-link">
+                <div class="ad-banner">
+                    <img src="hostinger-banner.png" alt="Hostinger - Fast and Secure Web Hosting">
+                </div>
+            </a>
+            
+            <!-- Ad Banner 2 - Orange Button -->
+            <a href="https://hostinger.com" target="_blank" class="ad-orange-link">
+                <div class="ad-orange">
+                    <span class="ad-text">AVAIL 20% OFF</span>
+                    <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </a>
+            <p class="ad-note">Only for New Users. T&C applied</p>
+            
+            <!-- Discover More Section -->
+            <div class="discover-more">
+                <h3 class="discover-title">Discover more</h3>
+                <ul class="discover-list">
+                    <li><a href="#">browser <i class="fas fa-chevron-right"></i></a></li>
+                    <li><a href="#">Web browser <i class="fas fa-chevron-right"></i></a></li>
+                    <li><a href="#">write <i class="fas fa-chevron-right"></i></a></li>
+                    <li><a href="#">html-editor <i class="fas fa-chevron-right"></i></a></li>
+                    <li><a href="#">Html Editor <i class="fas fa-chevron-right"></i></a></li>
+                    <li><a href="#">Computer programming <i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ + Ad Section -->
+<section class="faq-wrapper">
+
+  <!-- LEFT: AD SIDEBAR -->
+  <div class="how-to-sidebar">
+    <a href="https://example.com" target="_blank" class="ad-banner-link">
+      <div class="ad-banner">
+        <img src="hostinger-banner.png" alt="Hostinger Ad">
+      </div>
+    </a>
+
+    <a href="https://example.com" target="_blank" class="ad-orange-link">
+      <div class="ad-orange">
+        <span class="ad-text">AVAIL 20% OFF</span>
+        <i class="fas fa-arrow-circle-right"></i>
+      </div>
+    </a>
+
+    <p class="ad-note">Only for New Users. T&C applied</p>
+  </div>
+
+  <!-- RIGHT: FAQ CONTENT -->
+  <div class="faq-content">
+    <h2>Frequently Asked Questions (FAQs)</h2>
+    <div class="faq-underline"></div>
+
+    <div class="faq-item active">
+      <button class="faq-question">
+        What types of code can I write in the editor?
+        <span class="arrow"></span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          The editor supports HTML, CSS, and JavaScript.
+          Use <code>&lt;style&gt;</code> tags for CSS and
+          <code>&lt;script&gt;</code> tags for JavaScript.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Is the editor mobile-friendly?
+        <span class="arrow"></span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes, it works on mobile, tablet, and desktop.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Can I save my work?
+        <span class="arrow"></span>
+      </button>
+      <div class="faq-answer">
+        <p>You can copy or download your HTML code.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Discover More Links Section -->
+<section class="discover-links">
+  <h3>Discover more</h3>
+
+  <ul>
+    <li><a href="#">He5 Solutions</a><span>›</span></li>
+    <li><a href="#">coding</a><span>›</span></li>
+    <li><a href="#">Writing</a><span>›</span></li>
+    <li><a href="#">write</a><span>›</span></li>
+    <li><a href="#">editor</a><span>›</span></li>
+    <li><a href="#">Editor</a><span>›</span></li>
+    <li><a href="#">HTML editor</a><span>›</span></li>
+    <li><a href="#">writing</a><span>›</span></li>
+  </ul>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="https://he5.in/terms-conditions/">Terms & Conditions</a>
+    <a href="https://he5.in/refund-policy/">Refund Policy</a>
+    <a href="https://he5.in/privacy-policy/">Privacy Policy</a>
+    <a href="https://he5.in/contact/">Contact</a>
+  </div>
+
+  <div class="footer-copy">
+    © 2025. All Rights Reserved By <a target="_blank" href="https://he5.in/">He5 Solutions</a>
+  </div>
+</footer>
+
+
+<button id="scrollTopBtn">
+  <div class="top-arrows">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="top-text">TOP</div>
+</button>
+
+<script src="script.js"></script>
+    
+
+</body>
+</html>
