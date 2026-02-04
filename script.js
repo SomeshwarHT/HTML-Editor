@@ -6,6 +6,29 @@ const generateBtn = document.getElementById('generateBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 const interactiveMode = document.getElementById('interactiveMode');
 const lineNumbers = document.getElementById('lineNumbers');
+const highlightOverlay = document.getElementById('highlightOverlay');
+
+// Simple syntax highlighting - green tags only
+function highlightCode(code) {
+    // Escape HTML
+    let highlighted = code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    
+    // Highlight tags in green
+    highlighted = highlighted.replace(/(&lt;\/?)([a-zA-Z][a-zA-Z0-9]*)(.*?)(&gt;)/g, 
+        '<span class="tag">$1$2$3$4</span>');
+    
+    return highlighted;
+}
+
+// Update highlight overlay
+function updateHighlight() {
+    const code = codeEditor.value;
+    const highlighted = highlightCode(code);
+    highlightOverlay.innerHTML = highlighted;
+}
 
 // Auto-closing tags
 const autoCloseTags = {
@@ -39,9 +62,17 @@ interactiveMode.addEventListener('change', function() {
 // Update on input when interactive mode is on
 codeEditor.addEventListener('input', function() {
     updateLineNumbers();
+    updateHighlight();  // ADD THIS LINE
     if (isInteractive) {
         updatePreview();
     }
+});
+
+// Sync scroll between editor and overlay
+codeEditor.addEventListener('scroll', function() {
+    lineNumbers.scrollTop = codeEditor.scrollTop;
+    highlightOverlay.scrollTop = codeEditor.scrollTop;
+    highlightOverlay.scrollLeft = codeEditor.scrollLeft;
 });
 
 // Update preview function
@@ -104,33 +135,38 @@ codeEditor.addEventListener('keydown', function(e) {
     }
     
     // Auto-close tags when > is typed
-    if (e.key === '>') {
-        const start = this.selectionStart;
-        const value = this.value;
-        const textBefore = value.substring(0, start);
+if (e.key === '>') {
+    const start = this.selectionStart;
+    const value = this.value;
+    const textBefore = value.substring(0, start);
+    
+    // Check if we just closed an opening tag
+    const tagMatch = textBefore.match(/<([a-zA-Z][a-zA-Z0-9]*)(?:\s[^>]*)?$/);
+    
+    if (tagMatch && autoCloseTags[tagMatch[1].toLowerCase()]) {
+        const tagName = tagMatch[1];
         
-        // Check if we just closed an opening tag
-        const tagMatch = textBefore.match(/<([a-zA-Z][a-zA-Z0-9]*)(?:\s[^>]*)?$/);
-        
-        if (tagMatch && autoCloseTags[tagMatch[1].toLowerCase()]) {
-            const tagName = tagMatch[1];
+        // Don't auto-close if it's a self-closing tag (ends with /)
+        if (!textBefore.endsWith('/')) {
+            e.preventDefault();
             
-            // Don't auto-close if it's a self-closing tag (ends with /)
-            if (!textBefore.endsWith('/')) {
-                e.preventDefault();
-                
-                const beforeCursor = value.substring(0, start);
-                const afterCursor = value.substring(start);
-                
-                // Insert > and closing tag
-                this.value = beforeCursor + '></' + tagName + '>' + afterCursor;
-                
-                // Position cursor between the tags
-                this.selectionStart = this.selectionEnd = start + 1;
-                return;
-            }
+            const beforeCursor = value.substring(0, start);
+            const afterCursor = value.substring(start);
+            
+            // Insert > and closing tag
+            this.value = beforeCursor + '></' + tagName + '>' + afterCursor;
+            
+            // Position cursor between the tags
+            this.selectionStart = this.selectionEnd = start + 1;
+            
+            // Trigger input event to update highlighting and line numbers
+            updateLineNumbers();
+            updateHighlight();
+            
+            return;
         }
     }
+}
     
     // Auto-close brackets, quotes, etc.
     const pairs = {
@@ -274,7 +310,6 @@ generateBtn.addEventListener('click', function() {
     }
 });
 
-// Load code from URL parameter on page load
 window.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const base64code = urlParams.get('base64code');
@@ -284,6 +319,7 @@ window.addEventListener('DOMContentLoaded', function() {
             const decodedCode = decodeURIComponent(escape(atob(base64code)));
             codeEditor.value = decodedCode;
             updateLineNumbers();
+            updateHighlight();  // ADD THIS LINE
             updatePreview();
         } catch (e) {
             console.error('Error decoding code:', e);
@@ -291,11 +327,13 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     } else {
         updateLineNumbers();
+        updateHighlight();  // ADD THIS LINE
     }
 });
 
 // Initialize
 updateLineNumbers();
+updateHighlight();  // ADD THIS LINE
 
 document.addEventListener("DOMContentLoaded", () => {
   const scrollTopBtn = document.getElementById("scrollTopBtn");
