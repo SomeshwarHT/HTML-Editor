@@ -46,7 +46,9 @@
         </div>
         <div class="editor-wrapper">
             <div class="line-numbers" id="lineNumbers">1<br></div>
-            <textarea class="code-editor" id="codeEditor" spellcheck="false"></textarea>
+            <div class="code-input-wrapper">
+                <textarea class="code-editor" id="codeEditor" spellcheck="false"></textarea>
+            </div>
         </div>
     </div>
 
@@ -165,8 +167,7 @@
                         Your code is never stored on our servers. All processes, including encoding, decoding, and execution, 
                         are handled entirely in your browser, ensuring complete privacy and security.
                     </p>
-                </div>
-                
+                </div>  
             </div>
         </div>
     </div>
@@ -211,100 +212,90 @@
             </a>
             <p class="ad-note">Only for New Users. T&C applied</p>
             
-            <!-- Discover More Section -->
-            <div class="discover-more">
-                <h3 class="discover-title">Discover more</h3>
-                <ul class="discover-list">
-                    <li><a href="#">browser <i class="fas fa-chevron-right"></i></a></li>
-                    <li><a href="#">Web browser <i class="fas fa-chevron-right"></i></a></li>
-                    <li><a href="#">write <i class="fas fa-chevron-right"></i></a></li>
-                    <li><a href="#">html-editor <i class="fas fa-chevron-right"></i></a></li>
-                    <li><a href="#">Html Editor <i class="fas fa-chevron-right"></i></a></li>
-                    <li><a href="#">Computer programming <i class="fas fa-chevron-right"></i></a></li>
-                </ul>
+            
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="faq-container">
+        <div class="faq-sidebar">
+            <!-- Ad Banner - Hostinger -->
+            <a href="https://hostinger.com" target="_blank" class="faq-ad-link">
+                <div class="faq-ad-banner">
+                    <img src="hostinger-banner.png" alt="Hostinger - Fast and Secure Web Hosting">
+                </div>
+            </a>
+            
+            <!-- Orange Button -->
+            <a href="https://hostinger.com" target="_blank" class="faq-ad-orange-link">
+                <div class="faq-ad-orange">
+                    <span class="faq-ad-text">AVAIL 20% OFF</span>
+                    <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </a>
+            <p class="faq-ad-note">Only for New Users. T&C applied</p>
+        </div>
+        
+        <div class="faq-content">
+            <h2 class="faq-main-title">Frequently Asked Questions (FAQs)</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>What types of code can I write in the editor?</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>You can write HTML, CSS, and JavaScript code in the editor. It supports inline styles and scripts for quick prototyping and testing.</p>
+                </div>
+                </div>
+
+                <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Is the editor mobile-friendly?</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, the editor is fully responsive and works seamlessly on mobile devices, tablets, and desktops.</p>
+                </div>
+                </div>
+
+                <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Can I save my work?</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>While the editor doesn't save your work automatically, you can generate a shareable link to revisit your code anytime or share it with others.</p>
+                </div>
+                </div>
+
+                <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Is my code secure?</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! Your code is never stored on our servers. All encoding, decoding, and execution happen entirely in your browser, ensuring complete privacy and security.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FAQ + Ad Section -->
-<section class="faq-wrapper">
 
-  <!-- LEFT: AD SIDEBAR -->
-  <div class="how-to-sidebar">
-    <a href="https://example.com" target="_blank" class="ad-banner-link">
-      <div class="ad-banner">
-        <img src="hostinger-banner.png" alt="Hostinger Ad">
-      </div>
-    </a>
-
-    <a href="https://example.com" target="_blank" class="ad-orange-link">
-      <div class="ad-orange">
-        <span class="ad-text">AVAIL 20% OFF</span>
-        <i class="fas fa-arrow-circle-right"></i>
-      </div>
-    </a>
-
-    <p class="ad-note">Only for New Users. T&C applied</p>
+<!-- Search Sidebar -->
+<div id="searchSidebar" class="search-sidebar">
+  <button class="close-sidebar">&times;</button>
+  <div class="sidebar-content">
+    <div class="search-icon">
+      <i class="fas fa-search-minus"></i>
+    </div>
+    <h3 class="sidebar-title">We couldn't find results for <span id="searchTerm">Editor</span>.</h3>
   </div>
-
-  <!-- RIGHT: FAQ CONTENT -->
-  <div class="faq-content">
-    <h2>Frequently Asked Questions (FAQs)</h2>
-    <div class="faq-underline"></div>
-
-    <div class="faq-item active">
-      <button class="faq-question">
-        What types of code can I write in the editor?
-        <span class="arrow"></span>
-      </button>
-      <div class="faq-answer">
-        <p>
-          The editor supports HTML, CSS, and JavaScript.
-          Use <code>&lt;style&gt;</code> tags for CSS and
-          <code>&lt;script&gt;</code> tags for JavaScript.
-        </p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        Is the editor mobile-friendly?
-        <span class="arrow"></span>
-      </button>
-      <div class="faq-answer">
-        <p>Yes, it works on mobile, tablet, and desktop.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        Can I save my work?
-        <span class="arrow"></span>
-      </button>
-      <div class="faq-answer">
-        <p>You can copy or download your HTML code.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Discover More Links Section -->
-<section class="discover-links">
-  <h3>Discover more</h3>
-
-  <ul>
-    <li><a href="#">He5 Solutions</a><span>›</span></li>
-    <li><a href="#">coding</a><span>›</span></li>
-    <li><a href="#">Writing</a><span>›</span></li>
-    <li><a href="#">write</a><span>›</span></li>
-    <li><a href="#">editor</a><span>›</span></li>
-    <li><a href="#">Editor</a><span>›</span></li>
-    <li><a href="#">HTML editor</a><span>›</span></li>
-    <li><a href="#">writing</a><span>›</span></li>
-  </ul>
-</section>
+</div>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
 
 <!-- Footer -->
 <footer class="site-footer">
@@ -316,10 +307,9 @@
   </div>
 
   <div class="footer-copy">
-    © 2025. All Rights Reserved By <a target="_blank" href="https://he5.in/">He5 Solutions</a>
+    © 2025 . All Rights Reserved By <a target="_blank" href="https://he5.in/">He5 Solutions</a>
   </div>
 </footer>
-
 
 <button id="scrollTopBtn">
   <div class="top-arrows">
@@ -330,7 +320,6 @@
 </button>
 
 <script src="script.js"></script>
-    
 
 </body>
 </html>
