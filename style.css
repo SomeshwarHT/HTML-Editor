@@ -209,14 +209,12 @@ input:checked + .slider:before {
     flex-shrink: 0;
 }
 
-/* Editor area wrapper */
 .editor-area {
     flex: 1;
     position: relative;
     overflow: hidden;
 }
 
-/* Highlight overlay behind textarea */
 .highlight-overlay {
     position: absolute;
     top: 0;
@@ -230,7 +228,7 @@ input:checked + .slider:before {
     white-space: pre-wrap;
     word-wrap: break-word;
     pointer-events: none;
-    overflow: auto;
+    overflow: hidden;
     color: #000;
 }
 
@@ -247,9 +245,11 @@ input:checked + .slider:before {
 }
 
 .code-editor {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 15px;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 14px;
@@ -264,28 +264,29 @@ input:checked + .slider:before {
     overflow: auto;
 }
 
+/* Custom scrollbar - thin and clean */
+.code-editor::-webkit-scrollbar {
+    width: 8px;
+}
+
+.code-editor::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.code-editor::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.code-editor::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
 /* Make text transparent but keep caret visible */
 .code-editor {
     -webkit-text-fill-color: transparent;
     color: transparent;
     caret-color: #333;
-}
-
-/* Scrollbar for textarea */
-.code-editor::-webkit-scrollbar {
-    width: 10px;
-}
-
-.code-editor::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.code-editor::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-.code-editor::-webkit-scrollbar-thumb:hover {
-    background: #555;
 }
 
 /* Syntax highlighting for contenteditable */
